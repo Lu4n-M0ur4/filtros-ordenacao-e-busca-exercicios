@@ -30,7 +30,7 @@ const Header = (props) => {
    const handleIdSearch = (e) => {
     props.setIdFilter(e.target.value);
   };
-console.log(props.powerTypes);
+
   return (
     <Container>
         <input
@@ -45,10 +45,10 @@ console.log(props.powerTypes);
         onChange={handleSearch}
         value={props.pesquisa}
       />
-      <select>
+      <select onChange={(ev) => props.setOrder(ev.target.value) } > 
         <option value="">Ordenar</option>
-        <option value="">Crescente</option>
-        <option value="">Decrescente</option>
+        <option value="asc">Crescente</option>
+        <option value="desc">Decrescente</option>
       </select>
       <select
         name="tipo"

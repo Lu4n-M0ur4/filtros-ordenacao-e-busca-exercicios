@@ -22,6 +22,10 @@ function App() {
   const [pesquisa, setPesquisa] = useState("");
   const [idFilter, setIdFilter] = useState("");
   const [powerTypes, setPowerTypes] = useState("");
+  const [order, setOrder] = useState("");
+
+
+
 
   return (
     <>
@@ -33,6 +37,10 @@ function App() {
         setPesquisa={setPesquisa}
         powerTypes={powerTypes}
         setPowerTypes={setPowerTypes}
+        order={order}
+        setOrder={setOrder}
+       
+
       />
       <CardsContainer>
         {pokemons
@@ -47,6 +55,16 @@ function App() {
           .filter((pokemon) => {
             return powerTypes ? pokemon.type.includes(powerTypes): pokemon
           })
+          .sort((currentPokemon, nextPokemon) => {
+            console.log(order)
+            if ( order === 'asc'){
+              return currentPokemon.name.english.localeCompare(nextPokemon.name.english)
+            }else if ( order === 'desc'){
+              return  nextPokemon.name.english.localeCompare(currentPokemon.name.english)
+            }
+            
+            
+            })
           .map((pokemon) => {
             return (
               <PokemonCard

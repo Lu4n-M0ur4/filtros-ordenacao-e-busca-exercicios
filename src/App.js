@@ -62,6 +62,9 @@ function App() {
             }else if ( order === 'desc'){
               return  nextPokemon.name.english.localeCompare(currentPokemon.name.english)
             }
+            // else { 
+            //  return  nextPokemon.id- currentPokemon.id 
+            // }
             
             
             })

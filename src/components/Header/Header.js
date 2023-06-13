@@ -30,7 +30,7 @@ const Header = (props) => {
    const handleIdSearch = (e) => {
     props.setIdFilter(e.target.value);
   };
-
+console.log(props.powerTypes);
   return (
     <Container>
         <input
@@ -53,11 +53,12 @@ const Header = (props) => {
       <select
         name="tipo"
         id="tipo"
+        onChange={(e)=>props.setPowerTypes(e.target.value)}
           >
-        <option value="">Selecione um tipo</option>
+        <option  value="">Selecione um tipo</option>
         {pokemontypesArray.map((type) => {
           return (
-            <option key={type} value={type}>
+            <option key={type} value={type} >
               {type}
             </option>
           );
